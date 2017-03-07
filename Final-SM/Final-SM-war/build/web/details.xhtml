@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <f:facet name="first">
+            <title>Student Management</title>
+            <meta charset="UTF-8"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>            
+        </f:facet>
+        <f:facet name="middle">
+            <h:outputStylesheet library="css" name="bootstrap.css"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />          
+            <h:outputScript library="css" name="bootstrap.js" />   
+            <style>
+                .space-1{
+                    margin-top:50px;
+                }
+                
+                .user-row {
+                    margin-bottom: 14px;
+                }
+
+                .user-row:last-child {
+                    margin-bottom: 0;
+                }
+
+                .dropdown-user {
+                    margin: 13px 0;
+                    padding: 5px;
+                    height: 100%;
+                }
+
+                .dropdown-user:hover {
+                    cursor: pointer;
+                }
+
+                .table-user-information > tbody > tr {
+                    border-top: 1px solid rgb(221, 221, 221);
+                }
+
+                .table-user-information > tbody > tr:first-child {
+                    border-top: 0;
+                }
+
+
+                .table-user-information > tbody > tr > td {
+                    border-top: 0;
+                }
+                .toppad{
+                    margin-top:20px;
+                }
+            </style>
+        </f:facet>
+    </h:head>
+    <h:body>
+<nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Student Management</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+<!--          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>-->
+<!--          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          </ul>-->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+        
+        <div class="space-1"></div>
+    <div class="container">
+        <div class="space-1"></div>
+            <a class="btn btn-primary" style="float:left" href="/Final-SM-war/">Back</a>
+        <div class="space-1"></div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Student No. #{studentController.findAll().get(studentController.getIdParam()).id}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="#{studentController.findAll().get(studentController.getIdParam()).image}" class="img-circle img-responsive"/> </div>
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Name:</td>
+                        <td>#{studentController.findAll().get(studentController.getIdParam()).name}</td>
+                      </tr>
+                      <tr>
+                        <td>Class :</td>
+                        <td>#{studentController.findAll().get(studentController.getIdParam()).classs}</td>
+                      </tr>
+                      <tr>
+                        <td>Student ID</td>
+                        <td>#{studentController.findAll().get(studentController.getIdParam()).sid}</td>
+                      </tr>
+                        <tr>
+                        <td>Point:</td>
+                        <td>#{studentController.findAll().get(studentController.getIdParam()).point}</td>
+                      </tr>
+                        <tr>
+                        <td>Email:</td>
+                        <td>#{studentController.findAll().get(studentController.getIdParam()).email}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                    </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+        
+        
+    </h:body>
+</html>
+

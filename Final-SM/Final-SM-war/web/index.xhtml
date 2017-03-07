@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <f:facet name="first">
+        <title>Student Management</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </f:facet>
+        <f:facet name="middle">
+            <h:outputStylesheet library="css" name="bootstrap.css"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />          
+            <h:outputScript library="css" name="bootstrap.js" />   
+            <style>
+                .space-1{
+                    margin-top:50px;
+                }
+            </style>
+        </f:facet>
+        
+    </h:head>
+    <h:body>
+<nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Student Management</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+<!--          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>-->
+<!--          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          </ul>-->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+        
+        <div class="space-1"></div>
+        <h:form>
+            <div class="container">
+            <div class="col-md-9 col-md-offset-1">
+                <center>
+            <h:dataTable var="s" value="#{studentController.findAll()}" class="table table-hover table-striped">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{s.id}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText value="#{s.name}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Student ID</f:facet>
+                    <h:outputText value="#{s.sid}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Class</f:facet>
+                    <h:outputText value="#{s.classs}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Faculty</f:facet>
+                    <h:outputText value="#{s.faculty}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Point</f:facet>
+                    <h:outputText value="#{s.point}"></h:outputText>                    
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h:link outcome="details" value="Details">
+                      <f:param name="id" value="#{s.id}"/>
+                    </h:link>                   
+                </h:column>
+            </h:dataTable>
+                </center>
+            </div>
+        </div>
+        </h:form>
+    </h:body>
+</html>
+
